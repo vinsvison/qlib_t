@@ -8,6 +8,9 @@ from qlib.utils import exists_qlib_data
 import mlflow
 from mlflow.entities import Metric
 from mlflow.tracking import MlflowClient
+from qlib.data.dataset.handler import DataHandlerLP
+from qlib.contrib.eva.alpha import calc_ic, calc_long_short_return, calc_long_short_prec
+
 
 
 if __name__ == "__main__":
@@ -120,23 +123,26 @@ if __name__ == "__main__":
 
     with R.start(experiment_name="zhanyuan",uri='http://localhost:5000') as run:
         # mlflow.autolog(log_models=False) 
-        mlflow.lightgbm.autolog(log_models=False)
+        mlflow.lightgbm.autolog()
 
         R.log_params(**flatten_dict(task))
         model.fit(dataset)
 
-        mlflow.sklearn.log_model(model,'LGBModel')
-        R.save_objects(trained_model=model)
-        rid = R.get_recorder().id
+
+        # R.save_objects(trained_model=model)
+        # rid = R.get_recorder().id
 
         # prediction
         recorder = R.get_recorder()
-        sr = SignalRecord(model, dataset, recorder)
-        sr.generate()
-
+        pred = model.predict(dataset)
+        
+        params = dict(segments="test", col_set="label", data_key=DataHandlerLP.DK_R)
+        label = dataset.prepare(**params)
+        
         # Signal Analysis
-        sar = SigAnaRecord(recorder)
-        sar.generate()
+        # label_col=0
+        ic, ric = calc_ic(pred.iloc[:, 0], label.iloc[:, 0])
+
 
         # backtest. If users want to use backtest based on their own prediction,
         # please refer to https://qlib.readthedocs.io/en/latest/component/recorder.html#record-template.
