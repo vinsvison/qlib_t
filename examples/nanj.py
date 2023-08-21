@@ -10,6 +10,16 @@ from mlflow.entities import Metric
 from mlflow.tracking import MlflowClient
 from qlib.data.dataset.handler import DataHandlerLP
 from qlib.contrib.eva.alpha import calc_ic, calc_long_short_return, calc_long_short_prec
+from qlib.contrib.strategy import TopkDropoutStrategy
+from qlib.backtest import backtest,executor
+from qlib.utils.time import Freq
+from qlib.contrib.report import analysis_model, analysis_position
+from qlib.contrib.report.analysis_position.report import _report_figure
+from qlib.contrib.report.analysis_position.score_ic import score_ic_graph,_get_score_ic
+import plotly.io as pio
+import os
+import tempfile
+
 
 
 
@@ -73,56 +83,13 @@ if __name__ == "__main__":
     # model initiaiton    
     model = init_instance_by_config(task["model"]) 
     dataset = init_instance_by_config(task["dataset"])
-    
-    
-    ###################################
-    # prediction, backtest & analysis
-    ###################################
 
-    port_analysis_config = {
-        "executor": {
-            "class": "SimulatorExecutor",
-            "module_path": "qlib.backtest.executor",
-            "kwargs": {
-                "time_per_step": "day",
-                "generate_portfolio_metrics": True,
-            },
-        },
-        "strategy": {
-            "class": "TopkDropoutStrategy",
-            "module_path": "qlib.contrib.strategy.signal_strategy",
-            "kwargs": {
-                "signal": (model, dataset),
-                "topk": 50,
-                "n_drop": 5,
-            },
-        },
-        "backtest": {
-            "start_time": "2017-01-01",
-            "end_time": "2023-08-01",
-            "account": 100000000,
-            "benchmark": "SH000300",
-            "exchange_kwargs": {
-                "freq": "day",
-                "limit_threshold": 0.095,
-                "deal_price": "close",
-                "open_cost": 0.0005,
-                "close_cost": 0.0015,
-                "min_cost": 5,
-            },
-        },
-    }
-
-    # # NOTE: This line is optional
-    # # It demonstrates that the dataset can be used standalone.
-    # example_df = dataset.prepare("train")
-    # print(example_df.head())
 
     # start exp
 
 
     with R.start(experiment_name="zhanyuan",uri='http://localhost:5000') as run:
-        # mlflow.autolog(log_models=False) 
+        # mlflow.autolog() 
         mlflow.lightgbm.autolog()
 
         R.log_params(**flatten_dict(task))
@@ -133,21 +100,71 @@ if __name__ == "__main__":
         # rid = R.get_recorder().id
 
         # prediction
-        recorder = R.get_recorder()
+        
         pred = model.predict(dataset)
+        if isinstance(pred, pd.Series):
+            pred = pred.to_frame("score")
         
         params = dict(segments="test", col_set="label", data_key=DataHandlerLP.DK_R)
+        # del params["data_key"]
         label = dataset.prepare(**params)
         
         # Signal Analysis
         # label_col=0
         ic, ric = calc_ic(pred.iloc[:, 0], label.iloc[:, 0])
+        
+        for i, (date, value) in enumerate(ic.items()):
+            # 使用log_metric记录日期和对应的值
+            mlflow.log_metric('ic', value, step=i)
+        for i, (date, value) in enumerate(ric.items()):
+            # 使用log_metric记录日期和对应的值
+            mlflow.log_metric('ric', value, step=i)
+        print(ic.head())
 
 
-        # backtest. If users want to use backtest based on their own prediction,
-        # please refer to https://qlib.readthedocs.io/en/latest/component/recorder.html#record-template.
-        par = PortAnaRecord(recorder, port_analysis_config, "day")
-        par.generate()
+        FREQ = "day"
+        STRATEGY_CONFIG = {
+                    "topk": 50,
+                    "n_drop": 5,
+                    # pred_score, pd.Series
+                    "signal": pred,
+                }
 
-
-
+        EXECUTOR_CONFIG = {
+                    "time_per_step": "day",
+                    "generate_portfolio_metrics": True,
+                }
+        
+        backtest_config = {
+                    "start_time": "2017-01-01",
+                    "end_time": "2020-08-01",
+                    "account": 100000000,
+                    "benchmark": benchmark,
+                    "exchange_kwargs": {
+                        "freq": FREQ,
+                        "limit_threshold": 0.095,
+                        "deal_price": "close",
+                        "open_cost": 0.0005,
+                        "close_cost": 0.0015,
+                        "min_cost": 5,
+                    },
+                }
+        
+        # strategy object
+        strategy_obj = TopkDropoutStrategy(**STRATEGY_CONFIG)
+        # executor object
+        executor_obj = executor.SimulatorExecutor(**EXECUTOR_CONFIG)
+        # backtest
+        portfolio_metric_dict, indicator_dict = backtest(executor=executor_obj, strategy=strategy_obj, **backtest_config)
+        analysis_freq = "{0}{1}".format(*Freq.parse(FREQ))
+        
+        # backtest info
+        report_normal_df, positions_normal = portfolio_metric_dict.get(analysis_freq)
+        report_df = report_normal_df.copy()
+        fig_list = _report_figure(report_df)
+        for i, fig in enumerate(fig_list):
+            fig.update_layout(autosize=False, width=1500)
+            with tempfile.TemporaryDirectory() as temp_dir:
+                temp_file = os.path.join(temp_dir, 'report_normal.png')
+                pio.write_image(fig, temp_file)
+                mlflow.log_artifact(temp_file)

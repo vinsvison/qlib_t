@@ -485,6 +485,7 @@ class PortAnaRecord(ACRecordTemp):
         )
         for _freq, (report_normal, positions_normal) in portfolio_metric_dict.items():
             artifact_objects.update({f"report_normal_{_freq}.pkl": report_normal})
+            print(report_normal.head(5))
             artifact_objects.update({f"positions_normal_{_freq}.pkl": positions_normal})
 
         for _freq, indicators_normal in indicator_dict.items():
