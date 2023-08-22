@@ -51,7 +51,9 @@ class LGBModel(ModelFT, LightGBMFInt):
                     w = reweighter.reweight(df)
                 else:
                     raise ValueError("Unsupported reweighter type.")
-                ds_l.append((lgb.Dataset(x.values, label=y, weight=w), key))
+                feature_names = x.columns.tolist()
+                ds_l.append((lgb.Dataset(x.values, label=y, weight=w, feature_name=feature_names), key))
+                # ds_l.append((lgb.Dataset(x.values, label=y, weight=w), key))
         return ds_l
 
     def fit(

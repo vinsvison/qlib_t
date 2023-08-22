@@ -25,11 +25,12 @@ import plotly.io as pio
 import os
 import tempfile
 from qlib.contrib.evaluate import risk_analysis
+from qlib.contrib.data.handler import Alpha158
 
 
 if __name__ == "__main__":
     # use default data
-    provider_uri = "~/.qlib/qlib_data/gta"  # target_dir
+    provider_uri = "~/.qlib/qlib_data/cn_data"  # target_dir
     qlib.init(provider_uri=provider_uri, region=REG_CN)
 
     ###################################
@@ -83,7 +84,31 @@ if __name__ == "__main__":
 
     # model initiaiton
     model = init_instance_by_config(task["model"])
-    dataset = init_instance_by_config(task["dataset"])
+    # dataset = init_instance_by_config(task["dataset"])
+    data_handler_config = {
+        "start_time": "2008-01-01",
+        "end_time": "2020-08-01",
+        "fit_start_time": "2008-01-01",
+        "fit_end_time": "2014-12-31",
+        "instruments": "csi300",
+    }
+    dataset = Alpha158(**data_handler_config)
+    print(dataset.fetch(col_set="label", data_key=dataset.DK_L))
+    dataset_conf = {
+        "class": "DatasetH",
+        "module_path": "qlib.data.dataset",
+        "kwargs": {
+            "handler": dataset,
+            "segments": {
+                "train": ("2008-01-01", "2014-12-31"),
+                "valid": ("2015-01-01", "2016-12-31"),
+                "test": ("2017-01-01", "2020-08-01"),
+            },
+        },
+    }
+    dataset = init_instance_by_config(dataset_conf)
+    df = dataset.prepare("train", col_set=["feature", "label"], data_key=DataHandlerLP.DK_L)
+    print(df)
 
     # start exp
 
@@ -192,4 +217,3 @@ if __name__ == "__main__":
 
         with ThreadPoolExecutor(max_workers=5) as executor:
             executor.map(log_metric, metrics)
-
