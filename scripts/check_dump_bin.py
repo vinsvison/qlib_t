@@ -55,7 +55,7 @@ class CheckBin:
         self.qlib_dir = Path(qlib_dir).expanduser()
         bin_path_list = list(self.qlib_dir.joinpath("features").iterdir())
         self.qlib_symbols = sorted(map(lambda x: x.name.lower(), bin_path_list))
-        qlib.init(
+        qlib.init_qlib(
             provider_uri=str(self.qlib_dir.resolve()),
             mount_path=str(self.qlib_dir.resolve()),
             auto_mount=False,

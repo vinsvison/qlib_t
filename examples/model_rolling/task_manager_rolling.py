@@ -41,7 +41,7 @@ class RollingTaskExample:
             "task_url": task_url,
             "task_db_name": task_db_name,
         }
-        qlib.init(provider_uri=provider_uri, region=region, mongo=mongo_conf)
+        qlib.init_qlib(provider_uri=provider_uri, region=region, mongo=mongo_conf)
         self.experiment_name = experiment_name
         if task_pool is None:
             self.trainer = TrainerR(experiment_name=self.experiment_name)

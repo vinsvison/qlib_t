@@ -22,7 +22,7 @@ class TestGetData(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         provider_uri = str(QLIB_DIR.resolve())
-        qlib.init(
+        qlib.init_qlib(
             provider_uri=provider_uri,
             expression_cache=None,
             dataset_cache=None,

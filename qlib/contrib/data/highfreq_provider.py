@@ -104,7 +104,7 @@ class HighFreqProvider:
     def _init_qlib(self, qlib_conf):
         """initialize qlib"""
 
-        qlib.init(
+        qlib.init_qlib(
             region=REG_CN,
             auto_mount=False,
             custom_ops=[DayLast, FFillNan, BFillNan, Date, Select, IsNull, IsInf, Cut],

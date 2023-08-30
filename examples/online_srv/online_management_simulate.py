@@ -61,7 +61,7 @@ class OnlineSimulationExample:
             "task_url": task_url,
             "task_db_name": task_db_name,
         }
-        qlib.init(provider_uri=provider_uri, region=region, mongo=mongo_conf)
+        qlib.init_qlib(provider_uri=provider_uri, region=region, mongo=mongo_conf)
         self.rolling_gen = RollingGen(
             step=rolling_step, rtype=RollingGen.ROLL_SD, ds_extra_mod_func=None
         )  # The rolling tasks generator, ds_extra_mod_func is None because we just need to simulate to 2018-10-31 and needn't change the handler end time.

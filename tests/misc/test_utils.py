@@ -4,7 +4,7 @@ import unittest
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from qlib import init
+from qlib import init_qlib
 from qlib.config import C
 from qlib.log import TimeInspector
 from qlib.constant import REG_CN, REG_US, REG_TW
@@ -71,7 +71,7 @@ def cal_sam_minute(x: pd.Timestamp, sam_minutes: int, region: str):
 class TimeUtils(TestCase):
     @classmethod
     def setUpClass(cls):
-        init()
+        init_qlib()
 
     def test_cal_sam_minute(self):
         # test the correctness of the code

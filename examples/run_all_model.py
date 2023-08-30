@@ -208,7 +208,7 @@ class ModelRunner:
     def _init_qlib(self, exp_folder_name):
         # init qlib
         GetData().qlib_data(exists_skip=True)
-        qlib.init(
+        qlib.init_qlib(
             exp_manager={
                 "class": "MLflowExpManager",
                 "module_path": "qlib.workflow.expm",

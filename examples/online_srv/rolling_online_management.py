@@ -42,7 +42,7 @@ class RollingOnlineExample:
             "task_url": task_url,  # your MongoDB url
             "task_db_name": task_db_name,  # database name
         }
-        qlib.init(provider_uri=provider_uri, region=region, mongo=mongo_conf)
+        qlib.init_qlib(provider_uri=provider_uri, region=region, mongo=mongo_conf)
         self.tasks = tasks
         self.add_tasks = add_tasks
         self.rolling_step = rolling_step

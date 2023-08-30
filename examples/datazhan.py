@@ -12,7 +12,7 @@ data_handler_config = {
 
 if __name__ == "__main__":
     provider_uri = "~/.qlib/qlib_data/gta"  # target_dir
-    qlib.init(provider_uri=provider_uri, region=REG_CN)
+    qlib.init_qlib(provider_uri=provider_uri, region=REG_CN)
     h = Alpha158(**data_handler_config)
 
     # get all the columns of the data

@@ -39,7 +39,7 @@ class TestDumpData(unittest.TestCase):
         TestDumpData.DUMP_DATA = DumpDataAll(csv_path=SOURCE_DIR, qlib_dir=QLIB_DIR, include_fields=cls.FIELDS)
         TestDumpData.STOCK_NAMES = list(map(lambda x: x.name[:-4].upper(), SOURCE_DIR.glob("*.csv")))
         provider_uri = str(QLIB_DIR.resolve())
-        qlib.init(
+        qlib.init_qlib(
             provider_uri=provider_uri,
             expression_cache=None,
             dataset_cache=None,

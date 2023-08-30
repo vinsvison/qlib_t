@@ -1,0 +1,698 @@
+Starting v2.11.4 agent with ephemeral API...
+
+  ___ ___ ___ ___ ___ ___ _____     _   ___ ___ _  _ _____
+ | _ \ _ \ __| __| __/ __|_   _|   /_\ / __| __| \| |_   _|
+ |  _/   / _|| _|| _| (__  | |    / _ \ (_ | _|| .` | | |
+ |_| |_|_\___|_| |___\___| |_|   /_/ \_\___|___|_|\_| |_|
+
+
+Agent started! Looking for work from work pool 'default-agent-pool'...
+Discovered worker type 'process' for work pool 'default'.
+Worker 'ProcessWorker ff00159f-d37a-45e9-9879-d72e99dfeecb' started!
+15:43:17.450 | INFO    | prefect.flow_runs.worker - Worker 'ProcessWorker ff00159f-d37a-45e9-9879-d72e99dfeecb' submitting flow run '0f411e6d-60f8-45f3-91d3-b140f93ae7cb'
+15:43:17.697 | INFO    | prefect.flow_runs.worker - Opening process...
+15:43:17.732 | INFO    | prefect.flow_runs.worker - Completed submission of flow run '0f411e6d-60f8-45f3-91d3-b140f93ae7cb'
+Cloning into 'sqlib'...
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/runpy.py:127: RuntimeWarning: 'prefect.engine' found in sys.modules after import of package 'prefect', but prior to execution of 'prefect.engine'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+15:43:24.290 | INFO    | prefect.deployment - Cloned repository 'git@github.com:vinsvison/sqlib.git' into 'sqlib'
+15:43:27.248 | INFO    | Flow run 'acoustic-duck' - Created task run 'load_config-0' for task 'load_config'
+15:43:27.251 | INFO    | Flow run 'acoustic-duck' - Executing 'load_config-0' immediately...
+15:43:27.410 | INFO    | Task run 'load_config-0' - Finished in state Completed()
+15:43:27.512 | INFO    | Flow run 'acoustic-duck' - Created task run 'init-0' for task 'init'
+15:43:27.513 | INFO    | Flow run 'acoustic-duck' - Executing 'init-0' immediately...
+ > Running git_clone step...
+[3333443:WorkerThread-2](2023-08-24 15:43:27,600) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+15:43:27.600 | INFO    | qlib.Initialization - default_conf: client.
+[3333443:WorkerThread-2](2023-08-24 15:43:27,609) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+15:43:27.609 | INFO    | qlib.Initialization - qlib successfully initialized based on client settings.
+[3333443:WorkerThread-2](2023-08-24 15:43:27,610) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/idea/.qlib/qlib_data/cn_data')}
+15:43:27.610 | INFO    | qlib.Initialization - data_path={'__DEFAULT_FREQ': PosixPath('/home/idea/.qlib/qlib_data/cn_data')}
+15:43:27.611 | INFO    | Task run 'init-0' - init qlib success
+15:43:27.662 | INFO    | Task run 'init-0' - Finished in state Completed()
+15:43:27.705 | INFO    | Flow run 'acoustic-duck' - Created task run 'model_init-0' for task 'model_init'
+15:43:27.707 | INFO    | Flow run 'acoustic-duck' - Executing 'model_init-0' immediately...
+15:43:27.846 | INFO    | Task run 'model_init-0' - Finished in state Completed()
+15:43:27.887 | INFO    | Flow run 'acoustic-duck' - Created task run 'dataset_init-0' for task 'dataset_init'
+15:43:27.888 | INFO    | Flow run 'acoustic-duck' - Executing 'dataset_init-0' immediately...
+[3333443:WorkerThread-4](2023-08-24 15:43:59,525) INFO - qlib.timer - [log.py:127] - Time cost: 31.555s | Loading data Done
+15:43:59.525 | INFO    | qlib.timer - Time cost: 31.555s | Loading data Done
+[3333443:WorkerThread-4](2023-08-24 15:44:00,164) INFO - qlib.timer - [log.py:127] - Time cost: 0.201s | DropnaLabel Done
+15:44:00.164 | INFO    | qlib.timer - Time cost: 0.201s | DropnaLabel Done
+[3333443:WorkerThread-4](2023-08-24 15:44:04,373) INFO - qlib.timer - [log.py:127] - Time cost: 4.207s | CSZScoreNorm Done
+15:44:04.373 | INFO    | qlib.timer - Time cost: 4.207s | CSZScoreNorm Done
+[3333443:WorkerThread-4](2023-08-24 15:44:04,375) INFO - qlib.timer - [log.py:127] - Time cost: 4.849s | fit & process data Done
+15:44:04.375 | INFO    | qlib.timer - Time cost: 4.849s | fit & process data Done
+[3333443:WorkerThread-4](2023-08-24 15:44:04,376) INFO - qlib.timer - [log.py:127] - Time cost: 36.408s | Init data Done
+15:44:04.376 | INFO    | qlib.timer - Time cost: 36.408s | Init data Done
+[3333443:WorkerThread-4](2023-08-24 15:44:35,775) INFO - qlib.timer - [log.py:127] - Time cost: 31.396s | Loading data Done
+15:44:35.775 | INFO    | qlib.timer - Time cost: 31.396s | Loading data Done
+[3333443:WorkerThread-4](2023-08-24 15:44:36,411) INFO - qlib.timer - [log.py:127] - Time cost: 0.196s | DropnaLabel Done
+15:44:36.411 | INFO    | qlib.timer - Time cost: 0.196s | DropnaLabel Done
+[3333443:WorkerThread-4](2023-08-24 15:44:40,476) INFO - qlib.timer - [log.py:127] - Time cost: 4.064s | CSZScoreNorm Done
+15:44:40.476 | INFO    | qlib.timer - Time cost: 4.064s | CSZScoreNorm Done
+[3333443:WorkerThread-4](2023-08-24 15:44:40,479) INFO - qlib.timer - [log.py:127] - Time cost: 4.703s | fit & process data Done
+15:44:40.479 | INFO    | qlib.timer - Time cost: 4.703s | fit & process data Done
+[3333443:WorkerThread-4](2023-08-24 15:44:40,480) INFO - qlib.timer - [log.py:127] - Time cost: 36.102s | Init data Done
+15:44:40.480 | INFO    | qlib.timer - Time cost: 36.102s | Init data Done
+15:44:40.483 | INFO    | Task run 'dataset_init-0' - dataset: DatasetH(handler=<qlib.contrib.data.handler.Alpha158 object at 0x7f63d3f78d90>, segments={'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]})
+15:44:40.549 | INFO    | Task run 'dataset_init-0' - Finished in state Completed()
+15:44:40.580 | INFO    | Flow run 'acoustic-duck' - Created task run 'train-0' for task 'train'
+15:44:40.581 | INFO    | Flow run 'acoustic-duck' - Executing 'train-0' immediately...
+15:44:44.952 | INFO    | Task run 'train-0' - Training until validation scores don't improve for 50 rounds
+15:44:47.928 | INFO    | Task run 'train-0' - [20]      train's l2: 0.985855    valid's l2: 0.993616
+15:44:50.598 | INFO    | Task run 'train-0' - [40]      train's l2: 0.980941    valid's l2: 0.993274
+15:44:53.438 | INFO    | Task run 'train-0' - [60]      train's l2: 0.976695    valid's l2: 0.993403
+15:44:56.185 | INFO    | Task run 'train-0' - [80]      train's l2: 0.973033    valid's l2: 0.993451
+15:44:58.165 | INFO    | Task run 'train-0' - Early stopping, best iteration is:
+[43]    train's l2: 0.980247    valid's l2: 0.993256
+2023/08/24 15:45:02 WARNING mlflow.utils.autologging_utils: MLflow autologging encountered a warning: "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils."
+15:45:02.500 | INFO    | Task run 'train-0' - Finished in state Completed()
+15:45:02.609 | INFO    | Flow run 'acoustic-duck' - Created task run 'predict-0' for task 'predict'
+15:45:02.611 | INFO    | Flow run 'acoustic-duck' - Executing 'predict-0' immediately...
+15:45:03.390 | INFO    | Task run 'predict-0' - Finished in state Completed()
+15:45:03.415 | INFO    | Flow run 'acoustic-duck' - Created task run 'backtest_record-0' for task 'backtest_record'
+15:45:03.416 | INFO    | Flow run 'acoustic-duck' - Executing 'backtest_record-0' immediately...
+[3333443:WorkerThread-7](2023-08-24 15:45:03,468) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+15:45:03.468 | WARNING | qlib.data - load calendar error: freq=day, future=True; return current calendar!
+[3333443:WorkerThread-7](2023-08-24 15:45:03,471) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+15:45:03.471 | WARNING | qlib.data - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[3333443:WorkerThread-7](2023-08-24 15:45:03,499) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7f633befe400>
+15:45:03.499 | WARNING | qlib.BaseExecutor - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7f633befe400>
+[3333443:WorkerThread-7](2023-08-24 15:45:03,511) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+15:45:03.511 | INFO    | qlib.backtest caller - Create new exchange
+[3333443:WorkerThread-7](2023-08-24 15:45:09,547) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+15:45:09.547 | WARNING | qlib.online operator - $close field data contains nan.
+[3333443:WorkerThread-7](2023-08-24 15:45:09,550) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+15:45:09.550 | WARNING | qlib.online operator - $close field data contains nan.
+[3333443:WorkerThread-7](2023-08-24 15:45:09,555) WARNING - qlib.online operator - [exchange.py:226] - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+15:45:09.555 | WARNING | qlib.online operator - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+[3333443:WorkerThread-7](2023-08-24 15:45:09,556) WARNING - qlib.online operator - [exchange.py:228] - trade unit 100 is not supported in adjusted_price mode.
+15:45:09.556 | WARNING | qlib.online operator - trade unit 100 is not supported in adjusted_price mode.
+backtest loop:   0%|          | 0/871 [00:00<?, ?it/s]/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/utils/index_data.py:481: RuntimeWarning:
+
+Mean of empty slice
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/backtest/report.py:578: RuntimeWarning:
+
+invalid value encountered in scalar divide
+
+backtest loop:   1%|          | 9/871 [00:00<00:10, 80.21it/s]backtest loop:   2%|▏         | 18/871 [00:00<00:10, 82.76it/s]backtest loop:   3%|▎         | 27/871 [00:00<00:10, 83.88it/s]backtest loop:   4%|▍         | 36/871 [00:00<00:09, 84.41it/s]backtest loop:   5%|▌         | 45/871 [00:00<00:09, 84.95it/s]backtest loop:   6%|▌         | 54/871 [00:00<00:09, 85.33it/s]backtest loop:   7%|▋         | 63/871 [00:00<00:09, 85.42it/s]backtest loop:   8%|▊         | 72/871 [00:00<00:09, 85.31it/s]backtest loop:   9%|▉         | 81/871 [00:00<00:09, 85.32it/s]backtest loop:  10%|█         | 91/871 [00:01<00:09, 85.80it/s]backtest loop:  11%|█▏        | 100/871 [00:01<00:09, 83.46it/s]backtest loop:  13%|█▎        | 109/871 [00:01<00:09, 84.45it/s]backtest loop:  14%|█▎        | 119/871 [00:01<00:08, 85.92it/s]backtest loop:  15%|█▍        | 129/871 [00:01<00:08, 87.26it/s]backtest loop:  16%|█▌        | 139/871 [00:01<00:08, 86.88it/s]backtest loop:  17%|█▋        | 149/871 [00:01<00:08, 86.72it/s]backtest loop:  18%|█▊        | 159/871 [00:01<00:08, 86.72it/s]backtest loop:  19%|█▉        | 168/871 [00:02<00:13, 51.86it/s]backtest loop:  20%|██        | 176/871 [00:02<00:12, 57.07it/s]backtest loop:  21%|██        | 185/871 [00:02<00:10, 63.08it/s]backtest loop:  22%|██▏       | 194/871 [00:02<00:09, 68.02it/s]backtest loop:  23%|██▎       | 204/871 [00:02<00:09, 72.91it/s]backtest loop:  25%|██▍       | 214/871 [00:02<00:08, 76.97it/s]backtest loop:  26%|██▌       | 224/871 [00:02<00:08, 79.25it/s]backtest loop:  27%|██▋       | 234/871 [00:02<00:07, 81.41it/s]backtest loop:  28%|██▊       | 244/871 [00:03<00:07, 82.45it/s]backtest loop:  29%|██▉       | 253/871 [00:03<00:07, 82.90it/s]backtest loop:  30%|███       | 263/871 [00:03<00:07, 83.09it/s]backtest loop:  31%|███▏      | 273/871 [00:03<00:07, 83.40it/s]backtest loop:  32%|███▏      | 282/871 [00:03<00:07, 83.70it/s]backtest loop:  33%|███▎      | 291/871 [00:03<00:06, 83.22it/s]backtest loop:  34%|███▍      | 300/871 [00:03<00:06, 82.61it/s]backtest loop:  35%|███▌      | 309/871 [00:03<00:06, 82.56it/s]backtest loop:  37%|███▋      | 318/871 [00:04<00:06, 82.15it/s]backtest loop:  38%|███▊      | 327/871 [00:04<00:06, 82.22it/s]backtest loop:  39%|███▊      | 336/871 [00:04<00:06, 81.28it/s]backtest loop:  40%|███▉      | 345/871 [00:04<00:06, 81.52it/s]backtest loop:  41%|████      | 354/871 [00:04<00:06, 81.90it/s]backtest loop:  42%|████▏     | 363/871 [00:04<00:06, 82.22it/s]backtest loop:  43%|████▎     | 373/871 [00:04<00:06, 82.77it/s]backtest loop:  44%|████▍     | 383/871 [00:04<00:05, 82.22it/s]backtest loop:  45%|████▌     | 393/871 [00:04<00:05, 83.07it/s]backtest loop:  46%|████▌     | 402/871 [00:05<00:05, 84.72it/s]backtest loop:  47%|████▋     | 411/871 [00:05<00:05, 82.75it/s]backtest loop:  48%|████▊     | 420/871 [00:05<00:05, 82.45it/s]backtest loop:  49%|████▉     | 429/871 [00:05<00:05, 82.58it/s]backtest loop:  50%|█████     | 438/871 [00:05<00:05, 83.21it/s]backtest loop:  51%|█████▏    | 447/871 [00:05<00:05, 83.04it/s]backtest loop:  52%|█████▏    | 457/871 [00:05<00:04, 83.12it/s]backtest loop:  54%|█████▎    | 467/871 [00:05<00:04, 82.97it/s]backtest loop:  55%|█████▍    | 477/871 [00:05<00:04, 82.45it/s]backtest loop:  56%|█████▌    | 487/871 [00:06<00:04, 83.30it/s]backtest loop:  57%|█████▋    | 496/871 [00:06<00:04, 81.80it/s]backtest loop:  58%|█████▊    | 505/871 [00:06<00:04, 80.77it/s]backtest loop:  59%|█████▉    | 515/871 [00:06<00:04, 81.05it/s]backtest loop:  60%|██████    | 525/871 [00:06<00:04, 81.48it/s]backtest loop:  61%|██████▏   | 535/871 [00:06<00:04, 81.75it/s]backtest loop:  63%|██████▎   | 545/871 [00:06<00:03, 81.78it/s]backtest loop:  64%|██████▎   | 554/871 [00:06<00:03, 81.40it/s]backtest loop:  65%|██████▍   | 564/871 [00:06<00:03, 82.22it/s]/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/utils/index_data.py:481: RuntimeWarning:
+
+Mean of empty slice
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/backtest/report.py:578: RuntimeWarning:
+
+invalid value encountered in scalar divide
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/utils/index_data.py:481: RuntimeWarning:
+
+Mean of empty slice
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/backtest/report.py:578: RuntimeWarning:
+
+invalid value encountered in scalar divide
+
+backtest loop:  66%|██████▌   | 575/871 [00:07<00:03, 87.56it/s]backtest loop:  67%|██████▋   | 584/871 [00:07<00:03, 85.80it/s]backtest loop:  68%|██████▊   | 593/871 [00:07<00:03, 83.87it/s]backtest loop:  69%|██████▉   | 602/871 [00:07<00:03, 82.44it/s]backtest loop:  70%|███████   | 611/871 [00:07<00:03, 79.80it/s]backtest loop:  71%|███████   | 620/871 [00:07<00:03, 79.61it/s]backtest loop:  72%|███████▏  | 630/871 [00:07<00:02, 80.36it/s]backtest loop:  73%|███████▎  | 640/871 [00:07<00:02, 80.74it/s]backtest loop:  75%|███████▍  | 649/871 [00:08<00:02, 82.41it/s]backtest loop:  76%|███████▌  | 658/871 [00:08<00:02, 81.13it/s]backtest loop:  77%|███████▋  | 667/871 [00:08<00:02, 79.77it/s]backtest loop:  77%|███████▋  | 675/871 [00:08<00:02, 75.90it/s]backtest loop:  79%|███████▊  | 684/871 [00:08<00:02, 76.85it/s]backtest loop:  80%|███████▉  | 694/871 [00:08<00:02, 78.40it/s]backtest loop:  81%|████████  | 704/871 [00:08<00:02, 79.49it/s]backtest loop:  82%|████████▏ | 714/871 [00:08<00:01, 79.99it/s]backtest loop:  83%|████████▎ | 724/871 [00:08<00:01, 80.65it/s]backtest loop:  84%|████████▍ | 733/871 [00:09<00:01, 77.49it/s]backtest loop:  85%|████████▌ | 743/871 [00:09<00:01, 78.85it/s]backtest loop:  86%|████████▋ | 752/871 [00:09<00:01, 78.97it/s]backtest loop:  87%|████████▋ | 762/871 [00:09<00:01, 79.75it/s]backtest loop:  89%|████████▊ | 772/871 [00:09<00:01, 80.05it/s]backtest loop:  90%|████████▉ | 782/871 [00:09<00:01, 80.67it/s]backtest loop:  91%|█████████ | 792/871 [00:09<00:00, 81.00it/s]backtest loop:  92%|█████████▏| 801/871 [00:09<00:00, 80.60it/s]backtest loop:  93%|█████████▎| 810/871 [00:10<00:00, 80.48it/s]backtest loop:  94%|█████████▍| 819/871 [00:10<00:00, 80.29it/s]backtest loop:  95%|█████████▌| 828/871 [00:10<00:00, 79.77it/s]backtest loop:  96%|█████████▌| 838/871 [00:10<00:00, 80.37it/s]backtest loop:  97%|█████████▋| 847/871 [00:10<00:00, 80.24it/s]backtest loop:  98%|█████████▊| 856/871 [00:10<00:00, 79.95it/s]backtest loop:  99%|█████████▉| 866/871 [00:10<00:00, 81.26it/s]backtest loop: 100%|██████████| 871/871 [00:10<00:00, 80.58it/s]
+15:45:23.537 | INFO    | Task run 'backtest_record-0' - Finished in state Completed()
+15:45:23.661 | INFO    | Flow run 'acoustic-duck' - Finished in state Completed('All states completed.')
+15:45:24.932 | INFO    | prefect.flow_runs.worker - Process 3333443 exited cleanly.
+16:41:20.328 | INFO    | prefect.flow_runs.worker - Worker 'ProcessWorker ff00159f-d37a-45e9-9879-d72e99dfeecb' submitting flow run 'f34ffc1a-10f6-4aae-b5f5-bae1f34016e4'
+16:41:20.412 | INFO    | prefect.flow_runs.worker - Opening process...
+16:41:20.457 | INFO    | prefect.flow_runs.worker - Completed submission of flow run 'f34ffc1a-10f6-4aae-b5f5-bae1f34016e4'
+Cloning into 'sqlib'...
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/runpy.py:127: RuntimeWarning: 'prefect.engine' found in sys.modules after import of package 'prefect', but prior to execution of 'prefect.engine'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+16:41:26.905 | INFO    | prefect.deployment - Cloned repository 'git@github.com:vinsvison/sqlib.git' into 'sqlib'
+16:41:29.616 | INFO    | Flow run 'tangible-hippo' - Created task run 'load_config-0' for task 'load_config'
+16:41:29.620 | INFO    | Flow run 'tangible-hippo' - Executing 'load_config-0' immediately...
+16:41:29.789 | INFO    | Task run 'load_config-0' - Finished in state Completed()
+16:41:29.899 | INFO    | Flow run 'tangible-hippo' - Created task run 'init-0' for task 'init'
+16:41:29.901 | INFO    | Flow run 'tangible-hippo' - Executing 'init-0' immediately...
+ > Running git_clone step...
+[3344241:WorkerThread-2](2023-08-24 16:41:29,982) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+16:41:29.982 | INFO    | qlib.Initialization - default_conf: client.
+[3344241:WorkerThread-2](2023-08-24 16:41:29,991) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+16:41:29.991 | INFO    | qlib.Initialization - qlib successfully initialized based on client settings.
+[3344241:WorkerThread-2](2023-08-24 16:41:29,993) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/idea/.qlib/qlib_data/cn_data')}
+16:41:29.993 | INFO    | qlib.Initialization - data_path={'__DEFAULT_FREQ': PosixPath('/home/idea/.qlib/qlib_data/cn_data')}
+16:41:29.994 | INFO    | Task run 'init-0' - init qlib success
+16:41:30.048 | INFO    | Task run 'init-0' - Finished in state Completed()
+16:41:30.089 | INFO    | Flow run 'tangible-hippo' - Created task run 'model_init-0' for task 'model_init'
+16:41:30.091 | INFO    | Flow run 'tangible-hippo' - Executing 'model_init-0' immediately...
+16:41:30.223 | INFO    | Task run 'model_init-0' - Finished in state Completed()
+16:41:30.266 | INFO    | Flow run 'tangible-hippo' - Created task run 'dataset_init-0' for task 'dataset_init'
+16:41:30.268 | INFO    | Flow run 'tangible-hippo' - Executing 'dataset_init-0' immediately...
+[3344241:WorkerThread-4](2023-08-24 16:42:01,441) INFO - qlib.timer - [log.py:127] - Time cost: 31.110s | Loading data Done
+16:42:01.441 | INFO    | qlib.timer - Time cost: 31.110s | Loading data Done
+[3344241:WorkerThread-4](2023-08-24 16:42:02,080) INFO - qlib.timer - [log.py:127] - Time cost: 0.199s | DropnaLabel Done
+16:42:02.080 | INFO    | qlib.timer - Time cost: 0.199s | DropnaLabel Done
+[3344241:WorkerThread-4](2023-08-24 16:42:06,157) INFO - qlib.timer - [log.py:127] - Time cost: 4.076s | CSZScoreNorm Done
+16:42:06.157 | INFO    | qlib.timer - Time cost: 4.076s | CSZScoreNorm Done
+[3344241:WorkerThread-4](2023-08-24 16:42:06,160) INFO - qlib.timer - [log.py:127] - Time cost: 4.717s | fit & process data Done
+16:42:06.160 | INFO    | qlib.timer - Time cost: 4.717s | fit & process data Done
+[3344241:WorkerThread-4](2023-08-24 16:42:06,160) INFO - qlib.timer - [log.py:127] - Time cost: 35.830s | Init data Done
+16:42:06.160 | INFO    | qlib.timer - Time cost: 35.830s | Init data Done
+Process ForkPoolWorker-21:
+16:42:36.631 | INFO    | Task run 'dataset_init-0' - Traceback (most recent call last):
+16:42:36.635 | INFO    | Task run 'dataset_init-0' -   File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/data/data.py", line 1187, in features
+    return DatasetD.dataset(
+16:42:36.636 | INFO    | Task run 'dataset_init-0' - TypeError: dataset() got multiple values for argument 'inst_processors'
+16:42:36.637 | INFO    | Task run 'dataset_init-0' - 
+During handling of the above exception, another exception occurred:
+16:42:36.638 | INFO    | Task run 'dataset_init-0' - Traceback (most recent call last):
+16:42:36.639 | INFO    | Task run 'dataset_init-0' -   File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+16:42:36.640 | INFO    | Task run 'dataset_init-0' -   File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+16:42:36.641 | INFO    | Task run 'dataset_init-0' -   File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/multiprocessing/pool.py", line 114, in worker
+    task = get()
+16:42:36.642 | INFO    | Task run 'dataset_init-0' -   File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/joblib/pool.py", line 149, in get
+    rrelease()
+16:42:36.643 | INFO    | Task run 'dataset_init-0' -   File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/engine.py", line 1877, in cancel_flow_run
+    raise TerminationSignal(signal=signal.SIGTERM)
+16:42:36.644 | INFO    | Task run 'dataset_init-0' - prefect.exceptions.TerminationSignal
+[3344241:WorkerThread-4](2023-08-24 16:42:37,262) INFO - qlib.timer - [log.py:127] - Time cost: 31.100s | Loading data Done
+16:42:37.262 | INFO    | qlib.timer - Time cost: 31.100s | Loading data Done
+[3344241:WorkerThread-4](2023-08-24 16:42:37,916) INFO - qlib.timer - [log.py:127] - Time cost: 0.207s | DropnaLabel Done
+16:42:37.916 | INFO    | qlib.timer - Time cost: 0.207s | DropnaLabel Done
+[3344241:WorkerThread-4](2023-08-24 16:42:42,001) INFO - qlib.timer - [log.py:127] - Time cost: 4.084s | CSZScoreNorm Done
+16:42:42.001 | INFO    | qlib.timer - Time cost: 4.084s | CSZScoreNorm Done
+[3344241:WorkerThread-4](2023-08-24 16:42:42,004) INFO - qlib.timer - [log.py:127] - Time cost: 4.740s | fit & process data Done
+16:42:42.004 | INFO    | qlib.timer - Time cost: 4.740s | fit & process data Done
+[3344241:WorkerThread-4](2023-08-24 16:42:42,005) INFO - qlib.timer - [log.py:127] - Time cost: 35.843s | Init data Done
+16:42:42.005 | INFO    | qlib.timer - Time cost: 35.843s | Init data Done
+16:42:42.008 | INFO    | Task run 'dataset_init-0' - dataset: DatasetH(handler=<qlib.contrib.data.handler.Alpha158 object at 0x7fb0f3850190>, segments={'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]})
+16:42:42.061 | INFO    | Task run 'dataset_init-0' - Finished in state Completed()
+16:42:42.095 | INFO    | Flow run 'tangible-hippo' - Created task run 'train-0' for task 'train'
+16:42:42.096 | INFO    | Flow run 'tangible-hippo' - Executing 'train-0' immediately...
+16:42:46.457 | INFO    | Task run 'train-0' - Training until validation scores don't improve for 50 rounds
+16:42:49.372 | INFO    | Task run 'train-0' - [20]      train's l2: 0.985855    valid's l2: 0.993616
+16:42:52.093 | INFO    | Task run 'train-0' - [40]      train's l2: 0.980941    valid's l2: 0.993274
+16:42:54.919 | INFO    | Task run 'train-0' - [60]      train's l2: 0.976695    valid's l2: 0.993403
+16:42:57.850 | INFO    | Task run 'train-0' - [80]      train's l2: 0.973033    valid's l2: 0.993451
+16:42:59.845 | INFO    | Task run 'train-0' - Early stopping, best iteration is:
+[43]    train's l2: 0.980247    valid's l2: 0.993256
+2023/08/24 16:43:04 WARNING mlflow.utils.autologging_utils: MLflow autologging encountered a warning: "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils."
+16:43:04.681 | INFO    | Task run 'train-0' - Finished in state Completed()
+16:43:04.731 | INFO    | Flow run 'tangible-hippo' - Created task run 'predict-0' for task 'predict'
+16:43:04.733 | INFO    | Flow run 'tangible-hippo' - Executing 'predict-0' immediately...
+16:43:05.486 | INFO    | Task run 'predict-0' - Finished in state Completed()
+16:43:05.512 | INFO    | Flow run 'tangible-hippo' - Created task run 'backtest_record-0' for task 'backtest_record'
+16:43:05.513 | INFO    | Flow run 'tangible-hippo' - Executing 'backtest_record-0' immediately...
+[3344241:WorkerThread-7](2023-08-24 16:43:05,594) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+16:43:05.594 | WARNING | qlib.data - load calendar error: freq=day, future=True; return current calendar!
+[3344241:WorkerThread-7](2023-08-24 16:43:05,595) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+16:43:05.595 | WARNING | qlib.data - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[3344241:WorkerThread-7](2023-08-24 16:43:05,614) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fb05bf134c0>
+16:43:05.614 | WARNING | qlib.BaseExecutor - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fb05bf134c0>
+[3344241:WorkerThread-7](2023-08-24 16:43:05,623) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+16:43:05.623 | INFO    | qlib.backtest caller - Create new exchange
+[3344241:WorkerThread-7](2023-08-24 16:43:11,534) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+16:43:11.534 | WARNING | qlib.online operator - $close field data contains nan.
+[3344241:WorkerThread-7](2023-08-24 16:43:11,536) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+16:43:11.536 | WARNING | qlib.online operator - $close field data contains nan.
+[3344241:WorkerThread-7](2023-08-24 16:43:11,542) WARNING - qlib.online operator - [exchange.py:226] - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+16:43:11.542 | WARNING | qlib.online operator - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+[3344241:WorkerThread-7](2023-08-24 16:43:11,543) WARNING - qlib.online operator - [exchange.py:228] - trade unit 100 is not supported in adjusted_price mode.
+16:43:11.543 | WARNING | qlib.online operator - trade unit 100 is not supported in adjusted_price mode.
+backtest loop:   0%|          | 0/871 [00:00<?, ?it/s]/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/utils/index_data.py:481: RuntimeWarning:
+
+Mean of empty slice
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/backtest/report.py:578: RuntimeWarning:
+
+invalid value encountered in scalar divide
+
+backtest loop:   1%|          | 9/871 [00:00<00:10, 80.64it/s]backtest loop:   2%|▏         | 18/871 [00:00<00:10, 82.05it/s]backtest loop:   3%|▎         | 27/871 [00:00<00:10, 83.40it/s]backtest loop:   4%|▍         | 36/871 [00:00<00:09, 84.04it/s]backtest loop:   5%|▌         | 45/871 [00:00<00:09, 84.70it/s]backtest loop:   6%|▌         | 54/871 [00:00<00:09, 85.01it/s]backtest loop:   7%|▋         | 63/871 [00:00<00:09, 84.86it/s]backtest loop:   8%|▊         | 72/871 [00:00<00:09, 84.19it/s]backtest loop:   9%|▉         | 81/871 [00:00<00:09, 82.87it/s]backtest loop:  10%|█         | 91/871 [00:01<00:09, 83.07it/s]backtest loop:  11%|█▏        | 100/871 [00:01<00:09, 82.05it/s]backtest loop:  13%|█▎        | 109/871 [00:01<00:09, 82.96it/s]backtest loop:  14%|█▎        | 119/871 [00:01<00:08, 84.40it/s]backtest loop:  15%|█▍        | 129/871 [00:01<00:08, 86.03it/s]backtest loop:  16%|█▌        | 139/871 [00:01<00:08, 85.81it/s]backtest loop:  17%|█▋        | 149/871 [00:01<00:08, 85.70it/s]backtest loop:  18%|█▊        | 159/871 [00:01<00:08, 86.11it/s]backtest loop:  19%|█▉        | 168/871 [00:02<00:13, 52.14it/s]backtest loop:  20%|██        | 176/871 [00:02<00:12, 57.23it/s]backtest loop:  21%|██        | 184/871 [00:02<00:11, 62.01it/s]backtest loop:  22%|██▏       | 194/871 [00:02<00:09, 68.08it/s]backtest loop:  23%|██▎       | 204/871 [00:02<00:09, 72.60it/s]backtest loop:  25%|██▍       | 214/871 [00:02<00:08, 76.45it/s]backtest loop:  26%|██▌       | 224/871 [00:02<00:08, 78.79it/s]backtest loop:  27%|██▋       | 234/871 [00:03<00:07, 80.85it/s]backtest loop:  28%|██▊       | 244/871 [00:03<00:07, 81.79it/s]backtest loop:  29%|██▉       | 253/871 [00:03<00:07, 81.94it/s]backtest loop:  30%|███       | 263/871 [00:03<00:07, 82.28it/s]backtest loop:  31%|███▏      | 273/871 [00:03<00:07, 82.87it/s]backtest loop:  32%|███▏      | 282/871 [00:03<00:07, 83.14it/s]backtest loop:  33%|███▎      | 291/871 [00:03<00:07, 82.80it/s]backtest loop:  34%|███▍      | 300/871 [00:03<00:07, 78.32it/s]backtest loop:  35%|███▌      | 308/871 [00:03<00:07, 78.65it/s]backtest loop:  36%|███▋      | 316/871 [00:04<00:07, 78.54it/s]backtest loop:  37%|███▋      | 324/871 [00:04<00:06, 78.61it/s]backtest loop:  38%|███▊      | 334/871 [00:04<00:06, 80.16it/s]backtest loop:  39%|███▉      | 344/871 [00:04<00:06, 81.04it/s]backtest loop:  41%|████      | 354/871 [00:04<00:06, 82.08it/s]backtest loop:  42%|████▏     | 363/871 [00:04<00:06, 82.67it/s]backtest loop:  43%|████▎     | 373/871 [00:04<00:05, 83.05it/s]backtest loop:  44%|████▍     | 383/871 [00:04<00:05, 83.64it/s]backtest loop:  45%|████▌     | 393/871 [00:04<00:05, 84.24it/s]backtest loop:  46%|████▋     | 403/871 [00:05<00:05, 84.32it/s]backtest loop:  47%|████▋     | 413/871 [00:05<00:05, 83.35it/s]backtest loop:  49%|████▊     | 423/871 [00:05<00:05, 83.28it/s]backtest loop:  50%|████▉     | 432/871 [00:05<00:05, 83.27it/s]backtest loop:  51%|█████     | 442/871 [00:05<00:05, 84.11it/s]backtest loop:  52%|█████▏    | 452/871 [00:05<00:04, 84.21it/s]backtest loop:  53%|█████▎    | 462/871 [00:05<00:04, 83.14it/s]backtest loop:  54%|█████▍    | 472/871 [00:05<00:04, 82.78it/s]backtest loop:  55%|█████▌    | 482/871 [00:06<00:04, 82.81it/s]backtest loop:  56%|█████▋    | 491/871 [00:06<00:04, 83.22it/s]backtest loop:  57%|█████▋    | 500/871 [00:06<00:04, 80.99it/s]backtest loop:  58%|█████▊    | 509/871 [00:06<00:04, 79.66it/s]backtest loop:  59%|█████▉    | 517/871 [00:06<00:04, 78.56it/s]backtest loop:  60%|██████    | 525/871 [00:06<00:04, 77.83it/s]backtest loop:  61%|██████▏   | 535/871 [00:06<00:04, 78.77it/s]backtest loop:  62%|██████▏   | 544/871 [00:06<00:04, 81.68it/s]backtest loop:  63%|██████▎   | 553/871 [00:06<00:04, 77.67it/s]backtest loop:  64%|██████▍   | 561/871 [00:07<00:04, 75.78it/s]/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/utils/index_data.py:481: RuntimeWarning:
+
+Mean of empty slice
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/backtest/report.py:578: RuntimeWarning:
+
+invalid value encountered in scalar divide
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/utils/index_data.py:481: RuntimeWarning:
+
+Mean of empty slice
+
+/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/pyqlib-0.9.3.99-py3.8-linux-x86_64.egg/qlib/backtest/report.py:578: RuntimeWarning:
+
+invalid value encountered in scalar divide
+
+backtest loop:  66%|██████▌   | 571/871 [00:07<00:03, 78.26it/s]backtest loop:  67%|██████▋   | 581/871 [00:07<00:03, 79.38it/s]backtest loop:  68%|██████▊   | 590/871 [00:07<00:03, 78.89it/s]backtest loop:  69%|██████▉   | 600/871 [00:07<00:03, 79.56it/s]backtest loop:  70%|███████   | 610/871 [00:07<00:03, 79.55it/s]backtest loop:  71%|███████   | 618/871 [00:07<00:03, 79.58it/s]backtest loop:  72%|███████▏  | 626/871 [00:07<00:03, 78.26it/s]backtest loop:  73%|███████▎  | 635/871 [00:07<00:03, 78.21it/s]backtest loop:  74%|███████▍  | 645/871 [00:08<00:02, 78.91it/s]backtest loop:  75%|███████▌  | 655/871 [00:08<00:02, 79.38it/s]backtest loop:  76%|███████▌  | 664/871 [00:08<00:02, 78.00it/s]backtest loop:  77%|███████▋  | 672/871 [00:08<00:02, 68.71it/s]backtest loop:  78%|███████▊  | 680/871 [00:08<00:02, 70.78it/s]backtest loop:  79%|███████▉  | 689/871 [00:08<00:02, 73.24it/s]backtest loop:  80%|████████  | 699/871 [00:08<00:02, 75.73it/s]backtest loop:  81%|████████▏ | 708/871 [00:08<00:02, 79.40it/s]backtest loop:  82%|████████▏ | 717/871 [00:09<00:01, 78.96it/s]backtest loop:  83%|████████▎ | 725/871 [00:09<00:01, 78.20it/s]backtest loop:  84%|████████▍ | 733/871 [00:09<00:01, 74.61it/s]backtest loop:  85%|████████▌ | 743/871 [00:09<00:01, 76.56it/s]backtest loop:  86%|████████▋ | 752/871 [00:09<00:01, 77.08it/s]backtest loop:  87%|████████▋ | 761/871 [00:09<00:01, 79.06it/s]backtest loop:  88%|████████▊ | 769/871 [00:09<00:01, 77.61it/s]backtest loop:  89%|████████▉ | 777/871 [00:09<00:01, 76.44it/s]backtest loop:  90%|█████████ | 787/871 [00:09<00:01, 77.65it/s]backtest loop:  91%|█████████▏| 796/871 [00:10<00:00, 77.59it/s]backtest loop:  93%|█████████▎| 806/871 [00:10<00:00, 78.72it/s]backtest loop:  93%|█████████▎| 814/871 [00:10<00:00, 77.56it/s]backtest loop:  94%|█████████▍| 823/871 [00:10<00:00, 77.70it/s]backtest loop:  96%|█████████▌| 832/871 [00:10<00:00, 80.16it/s]backtest loop:  97%|█████████▋| 841/871 [00:10<00:00, 79.71it/s]backtest loop:  97%|█████████▋| 849/871 [00:10<00:00, 78.72it/s]backtest loop:  98%|█████████▊| 857/871 [00:10<00:00, 77.73it/s]backtest loop:  99%|█████████▉| 866/871 [00:10<00:00, 78.19it/s]backtest loop: 100%|██████████| 871/871 [00:11<00:00, 78.95it/s]
+16:43:25.707 | INFO    | Task run 'backtest_record-0' - Finished in state Completed()
+16:43:25.839 | INFO    | Flow run 'tangible-hippo' - Finished in state Completed('All states completed.')
+16:43:27.032 | INFO    | prefect.flow_runs.worker - Process 3344241 exited cleanly.
+20:33:25.043 | ERROR   | prefect.server - Encountered exception in request:
+Traceback (most recent call last):
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 709, in _start_transaction
+    self._transaction = self._connection.transaction(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connection.py", line 274, in transaction
+    self._check_open()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connection.py", line 1399, in _check_open
+    raise exceptions.InterfaceError('connection is closed')
+asyncpg.exceptions._base.InterfaceError: connection is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 408, in _prepare_and_execute
+    await adapt_connection._start_transaction()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 716, in _start_transaction
+    self._handle_exception(error)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.InterfaceError: <class 'asyncpg.exceptions._base.InterfaceError'>: connection is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 24, in __call__
+    await responder(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 44, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/utilities/server.py", line 103, in handle_response_scoped_depends
+    response = await default_handler(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/api/workers.py", line 284, in get_scheduled_flow_runs
+    work_pool_id = await worker_lookups._get_work_pool_id_from_name(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/api/workers.py", line 44, in _get_work_pool_id_from_name
+    work_pool = await models.workers.read_work_pool_by_name(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/database/dependencies.py", line 119, in async_wrapper
+    return await fn(*args, **kwargs)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/models/workers.py", line 102, in read_work_pool_by_name
+    result = await session.execute(query)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 408, in _prepare_and_execute
+    await adapt_connection._start_transaction()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 716, in _start_transaction
+    self._handle_exception(error)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.InterfaceError: (sqlalchemy.dialects.postgresql.asyncpg.InterfaceError) <class 'asyncpg.exceptions._base.InterfaceError'>: connection is closed
+[SQL: SELECT work_pool.id, work_pool.created, work_pool.updated, work_pool.name, work_pool.description, work_pool.type, work_pool.base_job_template, work_pool.is_paused, work_pool.default_queue_id, work_pool.concurrency_limit
+FROM work_pool 
+WHERE work_pool.name = %s 
+ LIMIT %s]
+[parameters: ('default-agent-pool', 1)]
+(Background on this error at: https://sqlalche.me/e/14/rvf5)
+20:33:27.101 | ERROR   | prefect.server - Encountered exception in request:
+Traceback (most recent call last):
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 24, in __call__
+    await responder(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 44, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/utilities/server.py", line 103, in handle_response_scoped_depends
+    response = await default_handler(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/api/workers.py", line 284, in get_scheduled_flow_runs
+    work_pool_id = await worker_lookups._get_work_pool_id_from_name(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/api/workers.py", line 44, in _get_work_pool_id_from_name
+    work_pool = await models.workers.read_work_pool_by_name(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/database/dependencies.py", line 119, in async_wrapper
+    return await fn(*args, **kwargs)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/models/workers.py", line 102, in read_work_pool_by_name
+    result = await session.execute(query)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1711, in execute
+    conn = self._connection_for_bind(bind)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 320, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 884, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec._checkin_failed(err, _fairy_was_created=False)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 488, in checkout
+    dbapi_connection = rec.get_connection()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 646, in get_connection
+    self.__connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 673, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in connect
+    await_only(self.asyncpg.connect(*arg, **kw)),
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connection.py", line 2114, in connect
+    return await connect_utils._connect(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 1011, in _connect
+    raise last_error or exceptions.TargetServerAttributeNotMatched(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 982, in _connect
+    conn = await _connect_addr(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+    return await __connect_addr(params, timeout, True, *args)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 860, in __connect_addr
+    tr, pr = await compat.wait_for(connector, timeout=timeout)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/compat.py", line 60, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/tasks.py", line 494, in wait_for
+    return fut.result()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 719, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 1025, in create_connection
+    raise exceptions[0]
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 1010, in create_connection
+    sock = await self._connect_sock(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 924, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/selector_events.py", line 496, in sock_connect
+    return await fut
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/selector_events.py", line 528, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 5432)
+20:33:31.003 | ERROR   | prefect.server - Encountered exception in request:
+Traceback (most recent call last):
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 24, in __call__
+    await responder(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 44, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/utilities/server.py", line 103, in handle_response_scoped_depends
+    response = await default_handler(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/api/flow_runs.py", line 329, in read_flow_runs
+    db_flow_runs = await models.flow_runs.read_flow_runs(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/database/dependencies.py", line 119, in async_wrapper
+    return await fn(*args, **kwargs)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/models/flow_runs.py", line 303, in read_flow_runs
+    result = await session.execute(query)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1711, in execute
+    conn = self._connection_for_bind(bind)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 320, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 884, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec._checkin_failed(err, _fairy_was_created=False)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 488, in checkout
+    dbapi_connection = rec.get_connection()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 617, in get_connection
+    self.__connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 673, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in connect
+    await_only(self.asyncpg.connect(*arg, **kw)),
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connection.py", line 2114, in connect
+    return await connect_utils._connect(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 1011, in _connect
+    raise last_error or exceptions.TargetServerAttributeNotMatched(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 982, in _connect
+    conn = await _connect_addr(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+    return await __connect_addr(params, timeout, True, *args)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 860, in __connect_addr
+    tr, pr = await compat.wait_for(connector, timeout=timeout)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/compat.py", line 60, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/tasks.py", line 494, in wait_for
+    return fut.result()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 719, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 1025, in create_connection
+    raise exceptions[0]
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 1010, in create_connection
+    sock = await self._connect_sock(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 924, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/selector_events.py", line 496, in sock_connect
+    return await fut
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/selector_events.py", line 528, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 5432)
+20:33:44.426 | ERROR   | prefect.server - Encountered exception in request:
+Traceback (most recent call last):
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 24, in __call__
+    await responder(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/gzip.py", line 44, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/utilities/server.py", line 103, in handle_response_scoped_depends
+    response = await default_handler(request)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/fastapi/routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/api/workers.py", line 417, in read_work_queue
+    work_queue_id = await worker_lookups._get_work_queue_id_from_name(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/api/workers.py", line 88, in _get_work_queue_id_from_name
+    work_queue = await models.workers.read_work_queue_by_name(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/database/dependencies.py", line 119, in async_wrapper
+    return await fn(*args, **kwargs)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/prefect/server/models/workers.py", line 455, in read_work_queue_by_name
+    result = await session.execute(query)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1711, in execute
+    conn = self._connection_for_bind(bind)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 320, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 884, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 491, in checkout
+    rec._checkin_failed(err, _fairy_was_created=False)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 488, in checkout
+    dbapi_connection = rec.get_connection()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 617, in get_connection
+    self.__connect()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 678, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 673, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in connect
+    await_only(self.asyncpg.connect(*arg, **kw)),
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connection.py", line 2114, in connect
+    return await connect_utils._connect(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 1011, in _connect
+    raise last_error or exceptions.TargetServerAttributeNotMatched(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 982, in _connect
+    conn = await _connect_addr(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+    return await __connect_addr(params, timeout, True, *args)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 860, in __connect_addr
+    tr, pr = await compat.wait_for(connector, timeout=timeout)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/compat.py", line 60, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/tasks.py", line 494, in wait_for
+    return fut.result()
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/site-packages/asyncpg/connect_utils.py", line 719, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 1025, in create_connection
+    raise exceptions[0]
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 1010, in create_connection
+    sock = await self._connect_sock(
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/base_events.py", line 924, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/selector_events.py", line 496, in sock_connect
+    return await fut
+  File "/home/idea/anaconda3/envs/visgpt/lib/python3.8/asyncio/selector_events.py", line 528, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 5432)

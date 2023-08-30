@@ -19,7 +19,7 @@ class TestClass(unittest.TestCase):
         Configure for arctic
         """
         provider_uri = "~/.qlib/qlib_data/yahoo_cn_1min"
-        qlib.init(
+        qlib.init_qlib(
             provider_uri=provider_uri,
             mem_cache_size_limit=1024**3 * 2,
             mem_cache_type="sizeof",

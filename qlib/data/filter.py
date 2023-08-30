@@ -10,7 +10,7 @@ import numpy as np
 import abc
 
 from .data import Cal, DatasetD
-
+from .stock_query import StockQuery
 
 class BaseDFilter(abc.ABC):
     """Dynamic Instruments Filter Abstract class
@@ -371,4 +371,51 @@ class ExpressionDFilter(SeriesDFilter):
             "filter_start_time": str(self.filter_start_time) if self.filter_start_time else self.filter_start_time,
             "filter_end_time": str(self.filter_end_time) if self.filter_end_time else self.filter_end_time,
             "keep": self.keep,
+        }
+
+class QueryDFilter(SeriesDFilter):
+    """Query dynamic instrument filter
+
+    Filter the instruments based on a certain query.
+    """
+
+    def __init__(self, query, fstart_time=None, fend_time=None):
+        """Init function for query filter class
+
+        Parameters
+        ----------
+        query: str
+            query to filter the stocks.
+        """
+        super(QueryDFilter, self).__init__(fstart_time, fend_time)
+        self.query = query
+        self.stock_query = StockQuery()
+
+    def _getFilterSeries(self, instruments, fstart, fend):
+        all_filter_series = {}
+        filter_calendar = Cal.calendar(start_time=fstart, end_time=fend, freq=self.filter_freq)
+        query_result = self.stock_query.query_stock(self.query)
+        query_instruments = query_result['股票代码'].apply(lambda x: x[-2:] + x[:6]).tolist()
+        for inst, timestamp in instruments.items():
+            if inst in query_instruments:
+                _filter_series = pd.Series({timestamp: True for timestamp in filter_calendar})
+            else:
+                _filter_series = pd.Series({timestamp: False for timestamp in filter_calendar})
+            all_filter_series[inst] = _filter_series
+        return all_filter_series
+
+    @staticmethod
+    def from_config(config):
+        return QueryDFilter(
+            query=config["query"],
+            fstart_time=config["filter_start_time"],
+            fend_time=config["filter_end_time"],
+        )
+
+    def to_config(self):
+        return {
+            "filter_type": "QueryDFilter",
+            "query": self.query,
+            "filter_start_time": str(self.filter_start_time) if self.filter_start_time else self.filter_start_time,
+            "filter_end_time": str(self.filter_end_time) if self.filter_end_time else self.filter_end_time,
         }

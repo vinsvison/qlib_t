@@ -48,7 +48,7 @@ def init_qlib(qlib_config: dict) -> None:
         if f"provider_uri_{granularity}" in qlib_config:
             provider_uri_map[f"{granularity}"] = _convert_to_path(qlib_config[f"provider_uri_{granularity}"]).as_posix()
 
-    qlib.init(
+    qlib.init_qlib(
         region=REG_CN,
         auto_mount=False,
         custom_ops=[DayLast, FFillNan, BFillNan, Date, Select, IsNull, IsInf, Cut, DayCumsum],

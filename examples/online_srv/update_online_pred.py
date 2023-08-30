@@ -27,7 +27,7 @@ class UpdatePredExample:
     def __init__(
         self, provider_uri="~/.qlib/qlib_data/cn_data", region=REG_CN, experiment_name="online_srv", task_config=task
     ):
-        qlib.init(provider_uri=provider_uri, region=region)
+        qlib.init_qlib(provider_uri=provider_uri, region=region)
         self.experiment_name = experiment_name
         self.online_tool = OnlineToolR(self.experiment_name)
         self.task_config = task_config

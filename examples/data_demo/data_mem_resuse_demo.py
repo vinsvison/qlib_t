@@ -13,7 +13,7 @@ import subprocess
 
 import yaml
 
-from qlib import init
+from qlib import init_qlib
 from qlib.data.dataset.handler import DataHandlerLP
 from qlib.log import TimeInspector
 from qlib.model.trainer import task_train
@@ -23,7 +23,7 @@ from qlib.utils import init_instance_by_config
 DIRNAME = Path(__file__).absolute().resolve().parent
 
 if __name__ == "__main__":
-    init()
+    init_qlib()
 
     repeat = 2
     exp_name = "data_mem_reuse_demo"

@@ -5,7 +5,7 @@ import numpy as np
 import io
 
 from .data import GetData
-from .. import init
+from .. import init_qlib
 from ..constant import REG_CN, REG_TW
 from qlib.data.filter import NameDFilter
 from qlib.data import D
@@ -52,7 +52,7 @@ class TestAutoData(unittest.TestCase):
             )
 
         provider_uri_map = {"1min": cls.provider_uri_1min, "day": provider_uri_day}
-        init(
+        init_qlib(
             provider_uri=provider_uri_map,
             region=REG_CN,
             expression_cache=None,
@@ -286,4 +286,4 @@ class TestMockData(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         provider_uri = "Not necessary."
-        init(region=REG_TW, provider_uri=provider_uri, expression_cache=None, dataset_cache=None, **cls._setup_kwargs)
+        init_qlib(region=REG_TW, provider_uri=provider_uri, expression_cache=None, dataset_cache=None, **cls._setup_kwargs)

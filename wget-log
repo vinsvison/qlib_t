@@ -1,0 +1,6 @@
+--2023-08-24 23:30:49--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/138754790/64c5ee76-f8b4-4382-a6cb-c9161148254c?X-Amz-Algorithm=AWS4-HMAC-SHA256
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.110.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 401 Unauthorized
+
+Username/Password Authentication Failed.

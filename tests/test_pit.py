@@ -65,7 +65,7 @@ class TestPIT(unittest.TestCase):
     def setUp(self):
         # qlib.init(kernels=1)  # NOTE: set kernel to 1 to make it debug easier
         provider_uri = str(QLIB_DIR.joinpath("cn_data").resolve())
-        qlib.init(provider_uri=provider_uri)
+        qlib.init_qlib(provider_uri=provider_uri)
 
     def to_str(self, obj):
         return "".join(str(obj).split())

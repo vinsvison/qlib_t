@@ -14,7 +14,7 @@ from .log import get_module_logger
 
 
 # init qlib
-def init(default_conf="client", **kwargs):
+def init_qlib(default_conf="client", **kwargs):
     """
 
     Parameters
@@ -179,7 +179,7 @@ def init_from_yaml_conf(conf_path, **kwargs):
             config = yaml.safe_load(f)
     config.update(kwargs)
     default_conf = config.pop("default_conf", "client")
-    init(default_conf, **config)
+    init_qlib(default_conf, **config)
 
 
 def get_project_path(config_name="config.yaml", cur_path: Union[Path, str, None] = None) -> Path:
@@ -267,7 +267,7 @@ def auto_init(**kwargs):
     try:
         pp = get_project_path(cur_path=kwargs.pop("cur_path", None))
     except FileNotFoundError:
-        init(**kwargs)
+        init_qlib(**kwargs)
     else:
         logger = get_module_logger("Initialization")
         conf_pp = pp / "config.yaml"

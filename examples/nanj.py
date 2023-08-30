@@ -31,7 +31,7 @@ from qlib.contrib.data.handler import Alpha158
 if __name__ == "__main__":
     # use default data
     provider_uri = "~/.qlib/qlib_data/cn_data"  # target_dir
-    qlib.init(provider_uri=provider_uri, region=REG_CN)
+    qlib.init_qlib(provider_uri=provider_uri, region=REG_CN)
 
     ###################################
     # train model
@@ -62,22 +62,6 @@ if __name__ == "__main__":
                 "max_depth": 8,
                 "num_leaves": 210,
                 "num_threads": 20,
-            },
-        },
-        "dataset": {
-            "class": "DatasetH",
-            "module_path": "qlib.data.dataset",
-            "kwargs": {
-                "handler": {
-                    "class": "Alpha158",
-                    "module_path": "qlib.contrib.data.handler",
-                    "kwargs": data_handler_config,
-                },
-                "segments": {
-                    "train": ("2004-01-01", "2017-12-31"),
-                    "valid": ("2018-01-01", "2019-12-31"),
-                    "test": ("2020-01-01", "2022-12-31"),
-                },
             },
         },
     }

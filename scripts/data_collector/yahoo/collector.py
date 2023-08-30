@@ -531,7 +531,7 @@ class YahooNormalize1dExtend(YahooNormalize1d):
         from qlib.data import D
 
         qlib_data_dir = str(Path(qlib_data_dir).expanduser().resolve())
-        qlib.init(provider_uri=qlib_data_dir, expression_cache=None, dataset_cache=None)
+        qlib.init_qlib(provider_uri=qlib_data_dir, expression_cache=None, dataset_cache=None)
         df = D.features(D.instruments("all"), ["$close/$factor", "$adjclose/$close"])
         df.columns = [self._ori_close_field, self._first_close_field]
         return df
@@ -777,14 +777,14 @@ class YahooNormalize1minOffline(YahooNormalize1min):
         import qlib
         from qlib.data import D
 
-        qlib.init(provider_uri=self.qlib_data_1d_dir)
+        qlib.init_qlib(provider_uri=self.qlib_data_1d_dir)
         return list(D.calendar(freq="day"))
 
     def _get_all_1d_data(self):
         import qlib
         from qlib.data import D
 
-        qlib.init(provider_uri=self.qlib_data_1d_dir)
+        qlib.init_qlib(provider_uri=self.qlib_data_1d_dir)
         df = D.features(D.instruments("all"), ["$paused", "$volume", "$factor", "$close"], freq="day")
         df.reset_index(inplace=True)
         df.rename(columns={"datetime": self._date_field_name, "instrument": self._symbol_field_name}, inplace=True)

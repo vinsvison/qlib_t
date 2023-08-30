@@ -17,7 +17,7 @@ def main(seed, config_file="configs/config_alstm.yaml"):
     )
 
     # initialize workflow
-    qlib.init(
+    qlib.init_qlib(
         provider_uri=config["qlib_init"]["provider_uri"],
         region=config["qlib_init"]["region"],
     )

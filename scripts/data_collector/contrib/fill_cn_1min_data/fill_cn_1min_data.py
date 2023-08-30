@@ -68,7 +68,7 @@ def fill_1min_using_1d(
     min_date, max_date = get_date_range(data_1min_dir, max_workers, date_field_name)
     symbols_1min = get_symbols(data_1min_dir)
 
-    qlib.init(provider_uri=str(qlib_data_1d_dir))
+    qlib.init_qlib(provider_uri=str(qlib_data_1d_dir))
     data_1d = D.features(D.instruments("all"), ["$close"], min_date, max_date, freq="day")
 
     miss_symbols = set(data_1d.index.get_level_values(level="instrument").unique()) - set(symbols_1min)
